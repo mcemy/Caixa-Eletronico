@@ -118,22 +118,6 @@ calculateWithdrawal (algoritmo)
 Response JSON
 ```
 
-## Desafios Enfrentados
-
-1. **Garantir que o TypeScript entenda os tipos de dado corretamente**
-
-   - Problema: TypeScript é rigoroso e não aceita tipos imprecisos (tipo `any`)
-   - Solução: Definir interfaces claras (`WithdrawalResult`, `ValidatedRequest`) e usar tipos específicos em cada função
-
-2. **Validar dados de entrada em camadas**
-
-   - Problema: Não basta receber um número, precisa certificar que é inteiro, positivo e obrigatório
-   - Solução: Criar middleware que valida: se existe → se é número → se é inteiro → se é positivo
-
-3. **Alguns valores não podem ser sacados**
-
-   - Problema: Com cédulas de 100, 50, 20, 10, 5, 2, alguns valores como 1, 3, 11, 13 são impossíveis
-   - Solução: O algoritmo greedy testa e retorna erro para esses casos
 
 4. **Sincronizar servidor com testes de integração**
    - Problema: O script de testes iniciava o servidor mas não sabia quando estava pronto. Se esperasse pela mensagem "rodando" e ela não aparecesse, ficava travado para sempre (timeout)
